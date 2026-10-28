@@ -36,6 +36,55 @@ Before pointing an MCP client at the binary, symlink it to a stable path
 The formatter is run **without** `-w`: files are never modified (its formatted
 stdout is discarded).
 
+## Connecting to clients
+
+No harness is preferred: any MCP client speaking stdio works. Snippets use
+`cvl-mcp` — substitute its absolute path (e.g. `~/.local/bin/cvl-mcp`) if it's
+not on the client's `$PATH`.
+
+**OpenCode** — `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "certora-check": { "type": "local", "command": ["cvl-mcp"] }
+    }
+  }
+}
+```
+
+**Claude Code**:
+
+```sh
+claude mcp add --transport stdio certora-check cvl-mcp
+```
+
+**Codex** — `.codex/config.toml`:
+
+```toml
+[mcp_servers.certora-check]
+command = "cvl-mcp"
+```
+
+**Cursor** — Settings → MCP, or `.cursor/mcp.json`:
+
+```json
+{ "mcpServers": { "certora-check": { "command": "cvl-mcp" } } }
+```
+
+**Cline** — *Settings → MCP Servers*, same `mcpServers` JSON shape as Cursor.
+
+**VS Code Copilot**:
+
+```sh
+code --add-mcp '{"name":"certora-check","command":"cvl-mcp"}'
+```
+
+Restart the client (or reload its MCP connections) after editing: running
+servers keep their old process until a reconnect, so the status UI is the
+source of truth, not the file you just saved.
+
 ## Build & test
 
 ```sh
