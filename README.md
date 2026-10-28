@@ -40,7 +40,7 @@ stdout is discarded).
 
 ```sh
 cargo build --release          # binary at target/release/cvl-mcp
-cargo fmt                       # cargo test = unit + e2e (CLI e2e skips w/o certora-cli)
+cargo test                     # unit tests + e2e (CLI e2e skips w/o certora-cli)
 
 # CLI — use any .spec/.cvl file (absolute or relative path)
 target/release/cvl-mcp <file.spec>
