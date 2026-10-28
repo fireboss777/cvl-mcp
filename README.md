@@ -1,5 +1,10 @@
 # cvl-mcp
 
+[![CI](https://github.com/fireboss777/cvl-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/fireboss777/cvl-mcp/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Rust 1.79+](https://img.shields.io/badge/rust-1.79%2B-orange.svg)](Cargo.toml)
+[![Code size](https://img.shields.io/github/languages/code-size/fireboss777/cvl-mcp)](https://github.com/fireboss777/cvl-mcp)
+
 Fast CVL2 lint built around the **`certoraCVLFormatter` shortcut** (`certora-cli`).
 One small Rust binary, two entry modes, zero network:
 
